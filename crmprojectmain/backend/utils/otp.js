@@ -3,7 +3,7 @@ const otps = new Map();
 exports.sendOtp = async (email) => {
   const otp = Math.floor(1000 + Math.random() * 9000).toString();
   otps.set(email, otp);
-  return otp; // ✅ return it
+  return otp; 
 };
 
 exports.verifyOtpCode = (email, inputOtp) => {
