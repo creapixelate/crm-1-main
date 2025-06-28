@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Creapixelate Admin Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link rel="stylesheet" href="./style/style.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="login-wrapper">
+    <!-- Left Side -->
+    <div class="left-section">
+      <img src="https://via.placeholder.com/200?text=Creapixelate" alt="Creapixelate Logo" class="left-image"/>
+      <div class="welcome-text">Welcome to Creapixelate</div>
+      <a href="#" id="signup-link" class="signup-text">Sign Up</a>
+    </div>
+
+    <!-- Right Side -->
+    <div class="right-section">
+      <!-- 🔔 Alert Box -->
+      <div id="alert-box" style="display:none; text-align:center; margin-bottom:10px;"></div>
+
+      <!-- Login Form -->
+      <form id="login-form" method="POST">
+        <input type="hidden" name="_csrf" id="csrf-token-login" />
+        <div class="form-group">
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
+          <input type="email" id="email" name="email" placeholder="email@example.com" required />
+        </div>
+        <div class="form-group password-group">
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
+          <input type="password" id="password" name="password" placeholder="Password" required />
+          <i class="fas fa-eye toggle-password" data-target="password"></i>
+        </div>
+        <div class="form-options">
+          <label><input type="checkbox" name="remember" /> Remember me</label>
+          <a href="#" id="forgot-password">Forgot password?</a>
+        </div>
+        <button type="submit" class="login-btn">Sign In</button>
+        <div class="divider">OR</div>
+        <button type="button" id="google-login" class="social-btn"><i class="fab fa-google"></i> Login with Google</button>
+        <button type="button" id="facebook-login" class="social-btn"><i class="fab fa-facebook-f"></i> Login with Facebook</button>
+      </form>
+
+      <!-- OTP Form -->
+      <form id="otp-form" class="hidden" method="POST">
+        <input type="hidden" name="_csrf" id="csrf-token-otp" />
+        <div class="form-group">
+          <label><i class="fas fa-key"></i> Enter OTP</label>
+          <div class="otp-inputs">
+            <input type="text" class="otp-digit login-otp-digit" maxlength="1" required pattern="[0-9]" />
+            <input type="text" class="otp-digit login-otp-digit" maxlength="1" required pattern="[0-9]" />
+            <input type="text" class="otp-digit login-otp-digit" maxlength="1" required pattern="[0-9]" />
+            <input type="text" class="otp-digit login-otp-digit" maxlength="1" required pattern="[0-9]" />
+          </div>
+        </div>
+        <button type="submit" class="login-btn">Verify OTP</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

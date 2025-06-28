@@ -1,0 +1,392 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+}
+
+.login-wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInOut 4s infinite;
+}
+
+.left-image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.welcome-text {
+    font-size: 2.5em;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+.welcome-text.shift-up {
+    transform: translateY(-150px);
+}
+
+.signup-text {
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+.signup-form,
+.signup-otp-form {
+    width: 100%;
+    max-width: 300px;
+}
+
+.hidden {
+    display: none;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -10px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    width: 100%;
+    max-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group label i {
+    margin-right: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.password-group {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: -32px;
+    top: 35px;
+    cursor: pointer;
+    color: #666;
+}
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+.form-options a {
+    color: #4b6cb7;
+    text-decoration: none;
+}
+
+.login-btn,
+.signup-btn,
+.social-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.login-btn {
+    background-color: #4b6cb7;
+    color: white;
+}
+
+.signup-btn {
+    background-color: #fff;
+    color: #4b6cb7;
+    border: 1px solid #4b6cb7;
+}
+
+.social-btn {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.divider {
+    text-align: center;
+    margin: 15px 0;
+    color: #666;
+    position: relative;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #ccc;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.otp-inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.otp-digit {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Decorative Elements */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.circle-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+}
+
+.circle-2 {
+    width: 300px;
+    height: 300px;
+    bottom: 20%;
+    right: 10%;
+}
+
+.circle-3 {
+    width: 150px;
+    height: 150px;
+    top: 40%;
+    left: 20%;
+}
+
+/* Animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+
+/* dasboard */
+
+.dashboard-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background: #182848;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .logo {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background: #4b6cb7;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header .user-info i {
+    font-size: 1.2em;
+    color: #4b6cb7;
+}
+
+.logout-btn {
+    background: #4b6cb7;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #182848;
+}
+
+.content-area {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.widget {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.widget h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.widget p {
+    margin: 0;
+    color: #666;
+}
+
+.widget i {
+    font-size: 2em;
+    color: #4b6cb7;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .dashboard-wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .sidebar .logo {
+        display: none;
+    }
+
+    .sidebar a {
+        margin: 0 5px;
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .content-area {
+        grid-template-columns: 1fr;
+    }
+}
