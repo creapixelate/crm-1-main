@@ -1,23 +1,26 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const connectDB = require('./db');
+const connectDB = require('./db'); // Ensure db.js exists in the same directory
 
-
+// Load environment variables
 dotenv.config({ path: './crm.env' });
 
+// Initialize Express app
 const app = express();
-const port = process.env.PORT || 5000; 
+const port = process.env.PORT || 5000; // Use environment variable or default to 5000
 
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// Serve static files from the frontend directory
+app.use(express.static('frontend')); // Optional: Serves frontend files statically
 
-app.use(express.static('frontend')); 
-
+// Example route
 app.get('/', (req, res) => {
   res.send('Welcome to the CRM Backend!');
 });
 
+// Dashboard route
 app.get('/dashboard', (req, res) => {
   res.sendFile(__dirname + '/frontend/dashboard.html', (err) => {
     if (err) {
@@ -26,7 +29,7 @@ app.get('/dashboard', (req, res) => {
   });
 });
 
-
+// Database connection function
 const initializeDB = async () => {
   try {
     await connectDB();
@@ -37,9 +40,9 @@ const initializeDB = async () => {
   }
 };
 
-
+// Start the server and initialize database
 const startServer = async () => {
-  await initializeDB();
+  await initializeDB(); // Connect to database first
   app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
   });

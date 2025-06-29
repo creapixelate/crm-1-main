@@ -4,7 +4,7 @@ const cors = require('cors');
 const csrf = require('csurf');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const authRoutes = require('./routes/auth'); 
+const authRoutes = require('./routes/auth'); // ঠিকমত path
 
 const app = express();
 const PORT = 5000;
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/login.html'));
 });
 
-app.use('/api/auth', csrfProtection, authRoutes);
+app.use('/api/auth', csrfProtection, authRoutes); // ঠিকঠাক এখানেও
 
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
