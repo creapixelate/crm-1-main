@@ -9,7 +9,7 @@ const pool = mysql.createPool({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     ssl: {
-        ca: fs.readFileSync(process.env.DB_CA)
+        ca: fs.readFileSync(process.env.DB_CA || '/etc/secrets/isrgrootx1.pem')
     }
 });
 
