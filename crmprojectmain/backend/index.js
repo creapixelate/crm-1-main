@@ -4,13 +4,15 @@ const cors = require('cors');
 const csrf = require('csurf');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const authRoutes = require('./routes/auth'); // ঠিকমত path
+const authRoutes = require('./routes/auth');
+require('dotenv').config(); // for .env support
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000; // 🟢 PORT for Render
 
+// 🟡 Allow CORS from frontend domain
 app.use(cors({
-  origin: 'http://localhost:5000',
+  origin: true,
   credentials: true
 }));
 
@@ -22,20 +24,25 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+// 🟢 Serve static HTML files from frontend
 app.use(express.static(path.join(__dirname, '../frontend')));
 
 const csrfProtection = csrf({ cookie: true });
 
+// ✅ CSRF token route
 app.get('/auth/csrf-token', csrfProtection, (req, res) => {
   res.json({ csrfToken: req.csrfToken() });
 });
 
+// ✅ Default route
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/login.html'));
 });
 
-app.use('/api/auth', csrfProtection, authRoutes); // ঠিকঠাক এখানেও
+// ✅ Auth routes
+app.use('/api/auth', csrfProtection, authRoutes);
 
+// ✅ Start server
 app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
